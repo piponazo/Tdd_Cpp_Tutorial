@@ -2,8 +2,13 @@ include_directories(${PROJECT_BINARY_DIR})    # To find the export file generate
 
 add_executable(unitTests
   MainUnitTests.cpp
+  TestBarcodeLabelGenerator.cpp
 )
 
-target_link_libraries(unitTests PRIVATE GTest::GTest)
+target_link_libraries(unitTests
+  PRIVATE
+    myLibrary
+    GTest::GTest
+)
 
 add_test(NAME unitTests COMMAND $<TARGET_FILE:unitTests>)
